@@ -40,19 +40,14 @@ let onOperationButtonClick = function(e) {
    alert(resultValue);
 }
 
-//  plus button logic
-let plusButton = document.getElementById('plusButton');
-plusButton.onclick = onOperationButtonClick;
+let addOperationListenerForButtonById = function(id){
+   let btn = document.getElementById(id);
+   btn.onclick = onOperationButtonClick;
+}
 
-//  minus button logic
-let minusButton = document.getElementById('minusButton');
-minusButton.onclick = onOperationButtonClick;
+// let operationButtonsIds = ['plusButton', 'minusButton', 'multiplyButton', 'devideButton'];
+let operationButtons = document.querySelectorAll('.operation-button');
 
-//  multiply button logic
-let multiplyButton = document.getElementById('multiplyButton');
-multiplyButton.onclick = onOperationButtonClick;
-
-//  devide button logic
-let devideButton = document.getElementById('devideButton');
-devideButton.onclick = onOperationButtonClick;
-
+for(let i = 0; i < operationButtons.length; i++){
+   addOperationListenerForButtonById(operationButtons[i].id);
+}
